@@ -20122,6 +20122,42 @@ paths:
           format: int64
       tags:
         - Query
+  /czh0526/checkers/checkers/next_game:
+    get:
+      summary: Queries a NextGame by index.
+      operationId: Czh0526CheckersCheckersNextGame
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              NextGame:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
   /czh0526/checkers/checkers/params:
     get:
       summary: Parameters queries the parameters of the module.
@@ -47178,9 +47214,24 @@ definitions:
     description: >-
       MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount
       response type.
+  czh0526.checkers.checkers.NextGame:
+    type: object
+    properties:
+      idValue:
+        type: string
+        format: uint64
   czh0526.checkers.checkers.Params:
     type: object
     description: Params defines the parameters for the module.
+  czh0526.checkers.checkers.QueryGetNextGameResponse:
+    type: object
+    properties:
+      NextGame:
+        type: object
+        properties:
+          idValue:
+            type: string
+            format: uint64
   czh0526.checkers.checkers.QueryParamsResponse:
     type: object
     properties:
